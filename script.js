@@ -5,22 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =========================================================
      MENU MOBILE
   ========================================================= */
-  const navToggle = document.getElementById('navToggle');
-  const mainNav = document.getElementById('mainNav');
+  const alternar_menu = document.getElementById('alternar_menu');
+  const menu_principal = document.getElementById('menu_principal');
 
   const closeNav = () => {
-    mainNav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Abrir menu');
+    menu_principal.classList.remove('aberto');
+    alternar_menu.setAttribute('aria-expanded', 'false');
+    alternar_menu.setAttribute('aria-label', 'Abrir menu');
   };
 
-  navToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-    navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  alternar_menu.addEventListener('click', () => {
+    const isOpen = menu_principal.classList.toggle('aberto');
+    alternar_menu.setAttribute('aria-expanded', String(isOpen));
+    alternar_menu.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
   });
 
-  mainNav.querySelectorAll('a').forEach(link => {
+  menu_principal.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeNav);
   });
 
@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =========================================================
      REVELAÇÃO AO ROLAR
   ========================================================= */
-  const revealEls = document.querySelectorAll('.reveal');
+  const revealEls = document.querySelectorAll('.revelar');
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          entry.target.classList.add('visivel');
           revealObserver.unobserve(entry.target);
         }
       });
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealEls.forEach(el => revealObserver.observe(el));
   } else {
-    revealEls.forEach(el => el.classList.add('is-visible'));
+    revealEls.forEach(el => el.classList.add('visivel'));
   }
 
   /* =========================================================
      CONTADOR DE ESTATÍSTICAS
   ========================================================= */
-  const statNumbers = document.querySelectorAll('.stat-number');
+  const statNumbers = document.querySelectorAll('.numero_estatistica');
   const animateCount = (el) => {
     const target = parseInt(el.getAttribute('data-count'), 10) || 0;
     const duration = 1400;
@@ -83,21 +83,21 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =========================================================
      BOTÃO VOLTAR AO TOPO
   ========================================================= */
-  const backToTop = document.getElementById('backToTop');
+  const voltar_topo = document.getElementById('voltar_topo');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 480) backToTop.classList.add('is-visible');
-    else backToTop.classList.remove('is-visible');
+    if (window.scrollY > 480) voltar_topo.classList.add('visivel');
+    else voltar_topo.classList.remove('visivel');
   }, { passive: true });
 
-  backToTop.addEventListener('click', () => {
+  voltar_topo.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
 
   /* =========================================================
      FORMULÁRIO DE CONTATO — validação + envio simulado
   ========================================================= */
-  const form = document.getElementById('contactForm');
-  const successMsg = document.getElementById('formSuccess');
+  const form = document.getElementById('formulario_contato');
+  const successMsg = document.getElementById('sucesso_formulario');
 
   const validators = {
     nome: (v) => v.trim().length >= 2 || 'Informe seu nome.',
@@ -108,12 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const setError = (fieldName, message) => {
     const field = form.querySelector(`[name="${fieldName}"]`);
     const errorEl = form.querySelector(`[data-error-for="${fieldName}"]`);
-    const row = field.closest('.form-row');
+    const row = field.closest('.linha_formulario');
     if (message) {
-      row.classList.add('has-error');
+      row.classList.add('com_erro');
       errorEl.textContent = message;
     } else {
-      row.classList.remove('has-error');
+      row.classList.remove('com_erro');
       errorEl.textContent = '';
     }
   };
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.querySelectorAll('input, textarea').forEach((field) => {
     field.addEventListener('input', () => {
-      if (field.closest('.form-row').classList.contains('has-error')) {
+      if (field.closest('.linha_formulario').classList.contains('com_erro')) {
         const validator = validators[field.name];
         if (validator && validator(field.value) === true) {
           setError(field.name, null);
