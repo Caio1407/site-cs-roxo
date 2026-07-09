@@ -98,11 +98,18 @@ document.addEventListener('DOMContentLoaded', () => {
   ========================================================= */
   const form = document.getElementById('formulario_contato');
   const successMsg = document.getElementById('sucesso_formulario');
+  const CHAVE_MENSAGENS = 'mensagens_formulario_contato';
 
   const validators = {
     nome: (v) => v.trim().length >= 2 || 'Informe seu nome.',
     email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Informe um e-mail válido.',
     mensagem: (v) => v.trim().length >= 10 || 'Conte um pouco mais (mín. 10 caracteres).'
+  };
+
+  const salvarMensagem = (dados) => {
+    const mensagens = JSON.parse(localStorage.getItem(CHAVE_MENSAGENS) || '[]');
+    mensagens.push(dados);
+    localStorage.setItem(CHAVE_MENSAGENS, JSON.stringify(mensagens));
   };
 
   const setError = (fieldName, message) => {
@@ -142,8 +149,18 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando...';
 
-    // Simulação de envio (sem backend conectado neste protótipo).
+    const dadosMensagem = {
+      nome: form.querySelector('[name="nome"]').value.trim(),
+      email: form.querySelector('[name="email"]').value.trim(),
+      empresa: form.querySelector('[name="empresa"]').value.trim(),
+      mensagem: form.querySelector('[name="mensagem"]').value.trim(),
+      data_envio: new Date().toISOString()
+    };
+
+    // Simulação de envio (sem backend conectado neste protótipo) — a mensagem
+    // fica salva no localStorage e pode ser vista em Bastidores_Cs/index.html.
     setTimeout(() => {
+      salvarMensagem(dadosMensagem);
       successMsg.textContent = 'Mensagem enviada! Retornaremos em até 1 dia útil.';
       form.reset();
       submitBtn.disabled = false;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastidores — Mensagens recebidas | ComSenso</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="cabecalho_bastidores">
+  <div class="conteiner cabecalho_bastidores_interno">
+    <a href="../index.html" class="logo" aria-label="ComSenso — página inicial">
+      <img src="../Assets/logo-comsenso.png" alt="ComSenso" class="logo_imagem">
+    </a>
+    <div>
+      <p class="rotulo rotulo_claro">Bastidores</p>
+      <h1 class="titulo_bastidores">Mensagens recebidas</h1>
+    </div>
+  </div>
+</header>
+
+<main class="conteiner pagina_bastidores">
+  <div class="barra_acoes">
+    <p class="contador_mensagens" id="contador_mensagens"></p>
+    <button type="button" class="botao_limpar" id="limpar_mensagens">Limpar mensagens</button>
+  </div>
+
+  <p class="estado_vazio" id="estado_vazio">Nenhuma mensagem recebida ainda. Envie uma pelo <a href="../index.html#contato">formulário de contato</a> do site.</p>
+
+  <ul class="lista_mensagens" id="lista_mensagens"></ul>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+.cabecalho_bastidores{
+  background: var(--purple-deep);
+  padding: 28px 0;
+}
+.cabecalho_bastidores_interno{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cabecalho_bastidores .logo_imagem{ height: 34px; }
+.cabecalho_bastidores .rotulo{ margin: 0 0 4px; }
+.titulo_bastidores{
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--white);
+  margin: 0;
+}
+
+.pagina_bastidores{
+  padding: 48px 24px 96px;
+}
+
+.barra_acoes{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.contador_mensagens{
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--gray);
+  margin: 0;
+}
+
+.botao_limpar{
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gray);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .85rem;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+.botao_limpar:hover{ border-color: #C0392B; color: #C0392B; }
+
+.estado_vazio{
+  background: var(--purple-tint);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  text-align: center;
+  color: var(--gray);
+}
+.estado_vazio a{ color: var(--purple); font-weight: 600; text-decoration: underline; }
+
+.lista_mensagens{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartao_mensagem{
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  box-shadow: 0 12px 32px rgba(36,20,84,.08);
+}
+.cartao_mensagem_cabecalho{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cartao_mensagem_nome{
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+}
+.cartao_mensagem_data{
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--gray);
+  white-space: nowrap;
+}
+.cartao_mensagem_contato{
+  font-size: .88rem;
+  color: var(--orange);
+  margin: 4px 0 12px;
+}
+.cartao_mensagem_texto{
+  color: var(--ink);
+  margin: 0;
+}
