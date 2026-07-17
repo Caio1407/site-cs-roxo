@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ========================================================= */
   const form = document.getElementById('formulario_contato');
   const successMsg = document.getElementById('sucesso_formulario');
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const validators = {
     nome: (v) => v.trim().length >= 2 || 'Informe seu nome.',
@@ -118,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let isValid = true;
 
@@ -142,13 +143,27 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando...';
 
-    // Simulação de envio (sem backend conectado neste protótipo).
-    setTimeout(() => {
-      successMsg.textContent = 'Mensagem enviada! Retornaremos em até 1 dia útil.';
-      form.reset();
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar mensagem';
-    }, 900);
+    const dadosMensagem = {
+      nome: form.querySelector('[name="nome"]').value.trim(),
+      email: form.querySelector('[name="email"]').value.trim(),
+      empresa: form.querySelector('[name="empresa"]').value.trim(),
+      mensagem: form.querySelector('[name="mensagem"]').value.trim()
+    };
+
+    const { error } = await supabaseClient.from('mensagens_contato').insert([dadosMensagem]);
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar mensagem';
+
+    if (error) {
+      successMsg.classList.add('erro');
+      successMsg.textContent = 'Não foi possível enviar sua mensagem. Tente novamente em instantes.';
+      return;
+    }
+
+    successMsg.classList.remove('erro');
+    successMsg.textContent = 'Mensagem enviada! Retornaremos em até 1 dia útil.';
+    form.reset();
   });
 
   form.querySelectorAll('input, textarea').forEach((field) => {

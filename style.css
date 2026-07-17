@@ -597,6 +597,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   text-align: center;
   min-height: 1.2em;
 }
+.sucesso_formulario.erro{ color: #C0392B; }
 
 /* =========================================================
    FOOTER
