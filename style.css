@@ -2,11 +2,11 @@
    COMSENSO — CONCEITO 2 — TOKENS
 ========================================================= */
 :root{
-  --purple: #5437BD;
-  --purple-deep: #241454;
+  --purple: #512D62;
+  --purple-deep: #330B4D;
   --purple-mid: #3D2591;
   --purple-tint: #EDEAFB;
-  --orange: #D66815;
+  --orange: #F36B22;
   --orange-tint: #FBE6D4;
   --white: #FFFFFF;
   --ink: #1C1730;
@@ -100,9 +100,9 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .botao_primario{
   background: var(--orange);
   color: var(--white);
-  box-shadow: 0 8px 20px rgba(214, 104, 21, .3);
+  box-shadow: 0 8px 20px rgba(243, 107, 34, .3);
 }
-.botao_primario:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(214, 104, 21, .38); }
+.botao_primario:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(243, 107, 34, .38); }
 
 .botao_contorno_claro{
   background: transparent;
@@ -123,7 +123,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   height: var(--header-h);
   z-index: 100;
   background: var(--purple-deep);
-  box-shadow: 0 4px 24px rgba(36, 20, 84, .18);
+  box-shadow: 0 4px 24px rgba(51, 11, 77, .18);
 }
 
 .cabecalho_interno{
@@ -207,7 +207,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(36,20,84,.94) 0%, rgba(84,55,189,.88) 45%, rgba(84,55,189,.55) 75%, rgba(84,55,189,.35) 100%);
+    linear-gradient(115deg, rgba(51,11,77,.94) 0%, rgba(81,45,98,.88) 45%, rgba(81,45,98,.55) 75%, rgba(81,45,98,.35) 100%);
 }
 .heroi_conteudo{
   position: relative;
@@ -379,7 +379,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .zigzag_foto{
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 24px 48px rgba(84,55,189,.16);
+  box-shadow: 0 24px 48px rgba(81,45,98,.16);
 }
 .zigzag_foto img{ width: 100%; height: 320px; object-fit: cover; }
 
@@ -423,7 +423,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   overflow: hidden;
   aspect-ratio: 3/4;
   margin: 0;
-  box-shadow: 0 16px 32px rgba(84,55,189,.14);
+  box-shadow: 0 16px 32px rgba(81,45,98,.14);
 }
 .item_galeria img{
   width: 100%; height: 100%;
@@ -435,7 +435,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 20px 16px;
-  background: linear-gradient(0deg, rgba(36,20,84,.92) 0%, rgba(36,20,84,0) 100%);
+  background: linear-gradient(0deg, rgba(51,11,77,.92) 0%, rgba(51,11,77,0) 100%);
   color: var(--white);
   font-size: .85rem;
 }
@@ -458,7 +458,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .estatisticas_sobreposicao{
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(36,20,84,.92) 0%, rgba(84,55,189,.86) 100%);
+  background: linear-gradient(180deg, rgba(51,11,77,.92) 0%, rgba(81,45,98,.86) 100%);
 }
 .estatisticas_foto .estatisticas_grade{
   position: relative;
@@ -474,45 +474,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .item_estatistica p{ color: rgba(255,255,255,.75); margin: 4px 0 0; font-size: .92rem; }
 
 /* =========================================================
-   DEPOIMENTOS
-========================================================= */
-.depoimentos{ padding: 96px 0; background: var(--white); }
-.grade_depoimentos{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
-.cartao_depoimento{
-  background: var(--purple-tint);
-  border-radius: var(--radius-md);
-  padding: 36px;
-  margin: 0;
-  position: relative;
-}
-.marca_citacao{
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  color: var(--orange);
-  line-height: 1;
-  display: block;
-  margin-bottom: 8px;
-}
-.cartao_depoimento p{ font-size: 1.02rem; color: var(--ink); }
-.cartao_depoimento footer{
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 20px;
-}
-.cartao_depoimento footer img{
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.cartao_depoimento footer strong{ display: block; font-size: .95rem; }
-.cartao_depoimento footer span{ font-size: .82rem; color: var(--gray); }
-
-/* =========================================================
    CTA FINAL
 ========================================================= */
 .chamada_final{
@@ -523,13 +484,12 @@ ul{ list-style: none; margin: 0; padding: 0; }
   overflow: hidden;
 }
 .chamada_logo_marca_dagua{
-  position: absolute;
-  right: -120%;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 260px;
+  position: static;
+  float: right;
+  height: clamp(20%, 20vw, 30%);
   width: auto;
-  opacity: .1;
+  margin: -10px -600px 12px 20px;
+  opacity: .9;
   filter: brightness(0) invert(1);
   pointer-events: none;
 }
@@ -568,7 +528,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 36px;
-  box-shadow: 0 24px 56px rgba(36,20,84,.14);
+  box-shadow: 0 24px 56px rgba(51,11,77,.14);
 }
 .linha_formulario{ margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px; }
 .linha_formulario label{ font-size: .85rem; font-weight: 600; }
@@ -585,7 +545,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .linha_formulario input:focus, .linha_formulario textarea:focus{
   outline: none;
   border-color: var(--purple);
-  box-shadow: 0 0 0 3px rgba(84,55,189,.15);
+  box-shadow: 0 0 0 3px rgba(81,45,98,.15);
 }
 .linha_formulario.com_erro input, .linha_formulario.com_erro textarea{ border-color: #C0392B; }
 .erro_formulario{ font-size: .8rem; color: #C0392B; min-height: 1em; }
@@ -643,7 +603,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   border: none;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(84,55,189,.4);
+  box-shadow: 0 10px 24px rgba(81,45,98,.4);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -688,10 +648,38 @@ ul{ list-style: none; margin: 0; padding: 0; }
   }
   .zigzag_foto img{ height: 240px; }
 
-  .grade_depoimentos{ grid-template-columns: 1fr; }
   .grade_contato{ grid-template-columns: 1fr; }
   .grade_rodape{ grid-template-columns: 1fr 1fr; }
   .estatisticas_foto .estatisticas_grade{ grid-template-columns: 1fr 1fr; gap: 28px 16px; }
+
+  .chamada_logo_marca_dagua{
+    position: relative;
+    float: right;
+    height: clamp(5%, 10vw, 10%);
+    width: auto;
+    margin: -10px -280px 8px 12px;
+    opacity: .9;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+}
+}
+
+@media (min-width: 702px) and (max-width: 999px){
+.chamada_logo_marca_dagua{
+    position: relative;
+    float: right;
+    height: 30vh;
+    width: auto;
+    right: -1%;
+    opacity: .9;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+}
+}
+
+@media (min-width: 551px) and (max-width: 960px){
+  .sobre_foto{ display: none; }
+  .zigzag_foto{ display: none; }
 }
 
 @media (max-width: 720px){
@@ -700,7 +688,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
     top: var(--header-h);
     left: 0; right: 0;
     background: var(--purple-deep);
-    box-shadow: 0 12px 24px rgba(36,20,84,.2);
+    box-shadow: 0 12px 24px rgba(51,11,77,.2);
     padding: 20px 24px 28px;
     transform: translateY(-8px);
     opacity: 0;
@@ -723,4 +711,10 @@ ul{ list-style: none; margin: 0; padding: 0; }
   .sobre_painel{ padding: 40px 22px; }
   .formulario_contato{ padding: 24px; }
   .grade_galeria{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 603px){
+  .imagem_fundo_topo{
+    display: none;
+  }
 }
